@@ -28,9 +28,21 @@ class Smartytest extends CI_Controller {
         // Some example data
         $data['title'] = "The Smarty parser works!";
         $data['body']  = "This is body text to show that the Smarty Parser works!";
+        $data['zhangwenhan'] = array(
+            'apple',
+            'orange',
+            'banana',
+        );
 
         // Load the template from the views directory
         $this->parser->parse("smartytest.tpl", $data);
+    }
+
+    public function testMysql() {
+        $this->load->database();
+        $sql = "select name, email from contacts";
+        $query = $this->db->query($sql);
+        print_r($query);
     }
 
     /**
