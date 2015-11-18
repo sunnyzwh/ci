@@ -60,5 +60,27 @@ class Smartytest extends CI_Controller {
 
     }
 
+    public function json()
+    {
+        $data = array(
+            'apple' => 10,
+            'banana' => 88,
+            'cherry' => 97,
+        );
+        $this->my_message->showMessage(0, 'success', $data);
+    }
+
+    public function http() 
+    {
+        $request = MY_Curl::get('http://cp01-rdqa04-dev118.cp01.baidu.com:8855/?qt=searchjob&name=%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6&job_level=0&city=%E8%A5%BF%E5%AE%89');
+        echo $request->body;
+    }
+
+    public function curl() 
+    {
+        $request = $this->my_curl->get('http://cp01-rdqa04-dev118.cp01.baidu.com:8855/?qt=searchjob&name=%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6&job_level=0&city=%E8%A5%BF%E5%AE%89');
+        echo $request->body;
+    }
+
 }
 
